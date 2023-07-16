@@ -6,10 +6,10 @@ export function Header() {
     const {addList,lists}=useLists()
 
     function newList() {
-        const INITIAL_DATA = { listName: 'untitled', maxSpend: 2, stores:[], progress: 0 }
+        const INITIAL_DATA = { listName: 'untitled', maxSpend: 0, stores:[], progress: 0 ,itemCount:0}
           const listIndex=lists.length
         addList(INITIAL_DATA)
-        router.push(`/lists/${listIndex}/edit`)
+        router.push(`/list/${listIndex}/edit`)
     }
 
     return <header className="bg-teal-500 p-5 flex gap-5 sticky items-center shadow-2xl">

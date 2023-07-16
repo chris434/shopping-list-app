@@ -3,6 +3,7 @@ export type listProps = {
     listName: string
     progress: number
     maxSpend: number
+    itemCount:number
     stores:storeProps[]
 }
 export type storeProps = {
