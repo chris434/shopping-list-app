@@ -11,6 +11,23 @@ export function listReducer(state: listProps[], action: actionProps):listProps[]
             const lists= getData<listProps[]>('lists')
             setData<listProps[]>('lists',lists)
             return lists
+        case 'EDIT_LIST': {
+            console.log('hg')
+             const { data, listId } = action.payload
+            const newLists = state.map((list, i) => {
+                console.log(data)
+                  console.log(listId)
+                if (i == listId) {
+                    console.log(data)
+                 return {...list,...data}   
+                }
+                return list
+            })
+            setData<listProps[]>('lists', newLists)
+            return newLists
+            
+         }
+           
     
         default:
            return state

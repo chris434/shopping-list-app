@@ -10,6 +10,7 @@ export function Header() {
           const listIndex=lists.length
         addList(INITIAL_DATA)
         router.push(`/list/${listIndex}/edit`)
+console.log(router.pathname)
     }
 
     return <header className="bg-teal-500 p-5 flex gap-5 sticky items-center shadow-2xl">

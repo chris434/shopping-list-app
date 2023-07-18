@@ -1,4 +1,5 @@
-import { createContext, useContext, useReducer, Dispatch,useEffect } from 'react'
+import {useParams}from'next/navigation'
+import { createContext, useContext, useReducer, Dispatch, useEffect } from 'react'
 import { listReducer } from '../reducers/listReducer'
 import { listProps, actionProps } from '../types/listTypes'
 import {childrenProps}from '../types/componentTypes'
@@ -10,7 +11,8 @@ type contextProps = {
 
 const Provider =  createContext<contextProps>({lists:[],dispatch:()=>{}})
 export  function ListProvider({ children }: childrenProps) {
-
+    const params = useParams()
+    console.log(params)
     const [lists, dispatch] = useReducer(listReducer, [])
     
     useEffect(() => {
@@ -28,5 +30,8 @@ export function useLists() {
     function addList(list:listProps) {
        dispatch({type:'ADD_LIST',payload:list}) 
     }
-    return {lists,addList}
+    function editList(data:object,listId:number) {
+        dispatch({ type: 'EDIT_LIST', payload: { data,listId } }) 
+    }
+    return {lists,addList,editList}
 }

@@ -18,6 +18,6 @@ export type itemProps = {
     checked: boolean
 }
 export type actionProps = {
-    type: 'ADD_LIST'|'SET_LISTS'
+    type: 'ADD_LIST'|'SET_LISTS'|'EDIT_LIST'
     payload?:any
 }
