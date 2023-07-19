@@ -10,12 +10,13 @@ export function useErrors<T>(FieldErrors:T) {
      function checkField(fieldData: fieldDataProps, options: optionsProps, destCb: () => void, args?: argsProps) {
         const {value,fieldText,fieldKey}=fieldData
         let error = ''
-         if (options.required && !value) error = `${fieldText} is required`
-         
-         if (args) {
+         if (options.required && !value) {
+             error = `${fieldText} is required`
+         } else if (args) {
              for (let argPair of args){
                  const [arg, errorMessage] = argPair
-                 if (arg) {
+                 console.log(arg)
+                 if (!arg) {
                      error = errorMessage
                      continue
                  }

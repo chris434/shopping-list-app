@@ -1,1 +1,1 @@
-export const ERROR_FIELDS={listName:''}
+export const ERROR_FIELDS={listName:'',maxSpend:''}
